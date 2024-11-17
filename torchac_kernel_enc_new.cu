@@ -1,7 +1,11 @@
 #include <iostream>
 #include <cstdio>
 #include <cuda_runtime.h>
+#ifdef __HIP_PLATFORM_HCC__
+#include "torchac_kernel_hip.cuh"
+#else
 #include "torchac_kernel.cuh"
+#endif
 
 #define MAX_LP 48
 #define MAX_THREAD_PER_BLOCK 128

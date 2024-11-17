@@ -1,7 +1,12 @@
 #include <pybind11/pybind11.h>
 #include <torch/torch.h>
 #include <ATen/ATen.h>
+// #include "torchac_kernel.cuh"
+#ifdef __HIP_PLATFORM_HCC__
+#include "torchac_kernel_hip.cuh"
+#else
 #include "torchac_kernel.cuh"
+#endif
 
 namespace py = pybind11;
 

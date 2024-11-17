@@ -79,5 +79,6 @@ perf-test.py
 *.nsys-rep
 *.sqlite
 
-./hip_output
-./*.hip
+hip_output
+*.hip
+*_hip.*

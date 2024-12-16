@@ -47,7 +47,6 @@ if __name__ == '__main__':
 
     # Copy sources from project directory to output directory.
     # The directory might already exist to hold object files so we ignore that.
-    shutil.copytree(args.project_dir, args.output_dir, dirs_exist_ok=True)
 
     hipify_result = hipify(project_directory=args.project_dir,
                            output_directory=args.output_dir,
@@ -57,6 +56,7 @@ if __name__ == '__main__':
                            show_detailed=True,
                            is_pytorch_extension=True,
                            hipify_extra_files_only=True)
+    shutil.copytree(args.project_dir, args.output_dir, dirs_exist_ok=True)
 
     hipified_sources = []
     for source in args.sources:
